@@ -39,17 +39,17 @@ public class ProjectController {
 			throw new IllegalArgumentException("Somethign went wrong. Plesae retry");
 		}
 	}
-	
+
 	@GetMapping("/project")
-	List<Project> getProject() {
-		return projectService.getProject();
+	List<Project> getProjects() {
+		return projectService.getProjects();
 	}
+
 	@GetMapping("/project/{id}")
-	Optional<Project> getProjectById(@PathVariable("id") String projectId){
+	Optional<Project> getProjectById(@PathVariable("id") String projectId) {
 		return projectService.getProjectById(projectId);
 	}
 
-	// DRY
 	@PutMapping("/project/{id}")
 	void updateProject(@RequestBody @Valid Project project, BindingResult bindingResult,
 			@PathVariable("id") String projectId) {
