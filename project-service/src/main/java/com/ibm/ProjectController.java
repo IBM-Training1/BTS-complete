@@ -31,7 +31,7 @@ public class ProjectController {
 		System.out.println(project);
 		return projectService.createProject(project); // delegate
 	}
-
+    //DRY
 	private void validateModel(Errors bindingResult) {
 		if (bindingResult.hasErrors()) {
 			throw new IllegalArgumentException("Somethign went wrong. Plesae retry");
