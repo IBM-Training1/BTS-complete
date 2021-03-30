@@ -4,43 +4,16 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.data.annotation.Id;
 
+
+
 public class Project {
+	
 	@Id
 	private String id;
 	@NotNull
 	private String name;
 	@NotNull
 	private String type;
-	@NotNull
-	private String managerId;
-	@NotNull
-	private String testerId;
-	@NotNull
-	private String developerId;
-
-	public String getManagerId() {
-		return managerId;
-	}
-
-	public void setManagerId(String managerId) {
-		this.managerId = managerId;
-	}
-
-	public String getTesterId() {
-		return testerId;
-	}
-
-	public void setTesterId(String testerId) {
-		this.testerId = testerId;
-	}
-
-	public String getDeveloperId() {
-		return developerId;
-	}
-
-	public void setDeveloperId(String developerId) {
-		this.developerId = developerId;
-	}
 
 	public String getName() {
 		return name;

@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+
+
 @RestController // Bean
 public class ProjectController {
 	@Autowired // is used for DI
@@ -28,7 +30,7 @@ public class ProjectController {
 		System.out.println(project);
 		return projectService.createProject(project); // delegate
 	}
-
+    //DRY
 	private void validateModel(Errors bindingResult) {
 		if (bindingResult.hasErrors()) {
 			throw new IllegalArgumentException("Somethign went wrong. Plesae retry");
