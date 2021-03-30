@@ -23,7 +23,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProjectController {
 	@Autowired // is used for DI
 	ProjectService projectService; // DI
-
 	@PostMapping("/project")
 	@ResponseStatus(code = HttpStatus.CREATED)
 	String createProject(@RequestBody @Valid Project project, BindingResult bindingResult) {

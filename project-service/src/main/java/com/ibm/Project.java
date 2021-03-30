@@ -2,27 +2,26 @@ package com.ibm;
 
 import java.util.ArrayList;
 
-
 import javax.validation.constraints.NotNull;
 
 import org.springframework.data.annotation.Id;
 
-
-
 public class Project {
-	
+
 	@Id
 	private String id;
+	
+
 	@NotNull
 	private String name;
 	@NotNull
 	private String type;
-    @NotNull
-    private ArrayList<String> developerId;
-    @NotNull
-    private ArrayList<String> testerId;
-    @NotNull
-    private String managerId;
+	private ArrayList<String> developerId;
+	private ArrayList<String> testerId;
+	private ArrayList<String> managerId;
+	
+	
+
 	public String getName() {
 		return name;
 	}
@@ -46,7 +45,6 @@ public class Project {
 	public void setId(String id) {
 		this.id = id;
 	}
-
 	public ArrayList<String> getDeveloperId() {
 		return developerId;
 	}
@@ -63,11 +61,11 @@ public class Project {
 		this.testerId = testerId;
 	}
 
-	public String getManagerId() {
+	public ArrayList<String> getManagerId() {
 		return managerId;
 	}
 
-	public void setManagerId(String managerId) {
+	public void setManagerId(ArrayList<String> managerId) {
 		this.managerId = managerId;
 	}
 
