@@ -5,7 +5,6 @@ import javax.validation.constraints.NotNull;
 import org.springframework.data.annotation.Id;
 
 public class Project {
-	@NotNull
 	@Id
 	private String id;
 	@NotNull
