@@ -44,11 +44,7 @@ public class BugController {
 		System.out.println(bug);
 		return bugService.createBug(bug);
 	}
-	private void validateModel(Errors bindingResult) {
-		if (bindingResult.hasErrors()) {
-			throw new IllegalArgumentException("something went wrong, please try again");
-		}
-	}
+	
 
 	/**
 	 * method to search bugId
