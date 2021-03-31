@@ -35,10 +35,6 @@ public class Bug {
 	private String description;
 	@NotNull
 	private String product;
-<<<<<<< HEAD
-
-=======
->>>>>>> 6f1a54ac97e9dda5ceed4ed2fb5d66650f761ee8
 	private String location;
 	private String buildVersion;
 	private String developerId;
