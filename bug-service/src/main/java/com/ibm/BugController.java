@@ -2,9 +2,7 @@ package com.ibm;
 
 import java.util.List;
 import java.util.Optional;
-
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
@@ -20,11 +18,25 @@ public class BugController {
 	@Autowired
 	BugService bugService;
 
+
+	/**
+	 * validation
+	 * 
+	 * @param bindingResult
+	 */
 	private void validateModel(Errors bindingResult) {
 		if (bindingResult.hasErrors()) {
 			throw new IllegalArgumentException("something went wrong, please try again");
 		}
 	}
+
+	/**
+	 * method to create bug
+	 * 
+	 * @param bug
+	 * @param bindingResult
+	 * @return the id
+	 */
 
 	@PostMapping("/bug")
 	String createBug(@RequestBody @Valid Bug bug, BindingResult bindingResult) {
@@ -32,7 +44,18 @@ public class BugController {
 		System.out.println(bug);
 		return bugService.createBug(bug);
 	}
+	private void validateModel(Errors bindingResult) {
+		if (bindingResult.hasErrors()) {
+			throw new IllegalArgumentException("something went wrong, please try again");
+		}
+	}
 
+	/**
+	 * method to search bugId
+	 * 
+	 * @param bugId
+	 * @return zero or matchingId
+	 */
 	@GetMapping("/bug/{id}")
 	Optional<Bug> getBugById(@PathVariable("id") String bugId) {
 		return bugService.getBugById(bugId);
@@ -43,6 +66,13 @@ public class BugController {
 		return bugService.getBugs();
 	}
 
+	/**
+	 * updates the changes in Bug
+	 * 
+	 * @param bugId
+	 * @param bug
+	 * @param bindingResult
+	 */
 	@PutMapping("/bug/{id}")
 	void updateBug(@RequestBody @Valid Bug bug, @PathVariable("id") String bugId, BindingResult bindingResult) {
 		validateModel(bindingResult);

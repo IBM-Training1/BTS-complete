@@ -3,36 +3,42 @@ package com.ibm;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
 import org.springframework.data.annotation.Id;
 
 public class Bug {
 	@Id
 	private String id;
 	@NotNull
+	@NotBlank
 	private String name;
 	@NotNull
 	private TYPE type;
 	@NotNull
 	private SEVERITY severity;
 	@NotNull
+	@NotBlank
 	private String projectId;
 	@NotNull
 	private PRIORITY priority;
 	@NotNull
 	private STATUS status;
 	@NotNull
+	@NotBlank
 	private String module;
 	@NotNull
+	@NotBlank
+	@Size(min = 5, max = 50, message = "synopsis must be between 5 and 50 characters")
 	private String synopsis;
 	@NotNull
 	@NotBlank
-	@Size(min = 10, max = 200, message 
-    = "About Me must be between 10 and 200 characters")
+	@Size(min = 10, max = 200, message = "description must be between 10 and 200 characters")
 	private String description;
 	@NotNull
 	private String product;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6f1a54ac97e9dda5ceed4ed2fb5d66650f761ee8
 	private String location;
 	private String buildVersion;
 	private String developerId;
@@ -43,7 +49,7 @@ public class Bug {
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		this.name = name.trim();
 	}
 
 	public String getId() {
@@ -67,7 +73,7 @@ public class Bug {
 	}
 
 	public void setModule(String module) {
-		this.module = module;
+		this.module = module.trim();
 	}
 
 	public String getSynopsis() {
@@ -75,7 +81,7 @@ public class Bug {
 	}
 
 	public void setSynopsis(String synopsis) {
-		this.synopsis = synopsis;
+		this.synopsis = synopsis.trim();
 	}
 
 	public String getDescription() {
