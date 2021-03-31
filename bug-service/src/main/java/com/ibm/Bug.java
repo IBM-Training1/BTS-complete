@@ -8,6 +8,9 @@ public class Bug {
 	@Id
 	private String id;
 	@NotNull
+	private String name;
+
+	@NotNull
 	private String projectId;
 	@NotNull
 	private String priority;
@@ -21,6 +24,13 @@ public class Bug {
 	private String description;
 	@NotNull
 	private String product;
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	public String getId() {
 		return id;
