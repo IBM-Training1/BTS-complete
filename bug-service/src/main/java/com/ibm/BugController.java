@@ -19,18 +19,16 @@ import org.springframework.web.bind.annotation.RestController;
 public class BugController {
 	@Autowired
 	BugService bugService;
-
-	private void validateModel(Errors bindingResult) {
-		if (bindingResult.hasErrors()) {
-			throw new IllegalArgumentException("something went wrong, please try again");
-		}
-	}
-
 	@PostMapping("/bug")
 	String createBug(@RequestBody @Valid Bug bug, BindingResult bindingResult) {
 		validateModel(bindingResult);
 		System.out.println(bug);
 		return bugService.createBug(bug);
+	}
+	private void validateModel(Errors bindingResult) {
+		if (bindingResult.hasErrors()) {
+			throw new IllegalArgumentException("something went wrong, please try again");
+		}
 	}
 
 	@GetMapping("/bug/{id}")
