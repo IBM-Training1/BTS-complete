@@ -24,6 +24,7 @@ public class Bug {
 	private String description;
 	@NotNull
 	private String product;
+	
 	public String getName() {
 		return name;
 	}
