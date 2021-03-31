@@ -32,15 +32,12 @@ public class Bug {
 	private String description;
 	@NotNull
 	private String product;
-<<<<<<< HEAD
 	
-=======
 	private String location;
 	private String buildVersion;
 	private String developerId;
 	private String testerId;
 
->>>>>>> 6e5e05a9179f5129ab0d60c453aed63ac864b7dd
 	public String getName() {
 		return name;
 	}
