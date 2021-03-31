@@ -9,13 +9,16 @@ public class Bug {
 	private String id;
 	@NotNull
 	private String name;
-
+	@NotNull
+	private TYPE type;
+	@NotNull
+	private SEVERITY severity;
 	@NotNull
 	private String projectId;
 	@NotNull
-	private String priority;
+	private PRIORITY priority;
 	@NotNull
-	private String status;
+	private STATUS status;
 	@NotNull
 	private String module;
 	@NotNull
@@ -24,7 +27,15 @@ public class Bug {
 	private String description;
 	@NotNull
 	private String product;
+<<<<<<< HEAD
 	
+=======
+	private String location;
+	private String buildVersion;
+	private String developerId;
+	private String testerId;
+
+>>>>>>> 6e5e05a9179f5129ab0d60c453aed63ac864b7dd
 	public String getName() {
 		return name;
 	}
@@ -47,22 +58,6 @@ public class Bug {
 
 	public void setProjectId(String projectId) {
 		this.projectId = projectId;
-	}
-
-	public String getPriority() {
-		return priority;
-	}
-
-	public void setPriority(String priority) {
-		this.priority = priority;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
 	}
 
 	public String getModule() {
@@ -95,6 +90,70 @@ public class Bug {
 
 	public void setProduct(String product) {
 		this.product = product;
+	}
+
+	public TYPE getType() {
+		return type;
+	}
+
+	public void setType(TYPE type) {
+		this.type = type;
+	}
+
+	public SEVERITY getSeverity() {
+		return severity;
+	}
+
+	public void setSeverity(SEVERITY severity) {
+		this.severity = severity;
+	}
+
+	public PRIORITY getPriority() {
+		return priority;
+	}
+
+	public void setPriority(PRIORITY priority) {
+		this.priority = priority;
+	}
+
+	public STATUS getStatus() {
+		return status;
+	}
+
+	public void setStatus(STATUS status) {
+		this.status = status;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public String getBuildVersion() {
+		return buildVersion;
+	}
+
+	public void setBuildVersion(String buildVersion) {
+		this.buildVersion = buildVersion;
+	}
+
+	public String getDeveloperId() {
+		return developerId;
+	}
+
+	public void setDeveloperId(String developerId) {
+		this.developerId = developerId;
+	}
+
+	public String getTesterId() {
+		return testerId;
+	}
+
+	public void setTesterId(String testerId) {
+		this.testerId = testerId;
 	}
 
 }
