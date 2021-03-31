@@ -1,6 +1,8 @@
 package com.ibm;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.springframework.data.annotation.Id;
 
@@ -24,14 +26,21 @@ public class Bug {
 	@NotNull
 	private String synopsis;
 	@NotNull
+	@NotBlank
+	@Size(min = 10, max = 200, message 
+    = "About Me must be between 10 and 200 characters")
 	private String description;
 	@NotNull
 	private String product;
+<<<<<<< HEAD
+	
+=======
 	private String location;
 	private String buildVersion;
 	private String developerId;
 	private String testerId;
 
+>>>>>>> 6e5e05a9179f5129ab0d60c453aed63ac864b7dd
 	public String getName() {
 		return name;
 	}
@@ -77,7 +86,7 @@ public class Bug {
 	}
 
 	public void setDescription(String description) {
-		this.description = description;
+		this.description = description.trim();
 	}
 
 	public String getProduct() {
