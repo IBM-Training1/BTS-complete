@@ -18,6 +18,7 @@ public class BugController {
 	@Autowired
 	BugService bugService;
 
+
 	/**
 	 * validation
 	 * 
@@ -42,6 +43,11 @@ public class BugController {
 		validateModel(bindingResult);
 		System.out.println(bug);
 		return bugService.createBug(bug);
+	}
+	private void validateModel(Errors bindingResult) {
+		if (bindingResult.hasErrors()) {
+			throw new IllegalArgumentException("something went wrong, please try again");
+		}
 	}
 
 	/**
