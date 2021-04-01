@@ -17,11 +17,13 @@ public class DummyBugRepository implements BugRepository {
 
 	@Override
 	public List<Bug> findAll() {
+		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public List<Bug> findAll(Sort sort) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 

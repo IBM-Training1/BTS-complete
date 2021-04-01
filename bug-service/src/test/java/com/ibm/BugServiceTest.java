@@ -18,6 +18,7 @@ class BugServiceTest {
 
 	/*/@Test
 	void testGetBugById() {
+		fail("Not yet implemented");
 	}
 
 	@Test
