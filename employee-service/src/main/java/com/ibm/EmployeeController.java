@@ -72,7 +72,7 @@ public class EmployeeController {
 		validateModel(bindingResult);
 		System.out.println(employeeId);
 		employee.setId(employeeId);
-		employeeService.createEmployee(employee);
+		employeeService.updateEmployeeDetails(employee);
 	}
 }
 

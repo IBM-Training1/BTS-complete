@@ -22,7 +22,7 @@ public class EmployeeService {
 		return employeeRepository.findAll();
 	}
 
-	public void updateBug(Employee employee) {
+	public void updateEmployeeDetails(Employee employee) {
 		employeeRepository.save(employee);
 	}
 	
