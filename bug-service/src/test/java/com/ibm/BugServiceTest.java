@@ -3,6 +3,13 @@ package com.ibm;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
+
+
+class BugServiceTest {
+
+	@Test
+	void testCreateBug() 
+    
 public class BugServiceTest {
 
 	@Test
@@ -13,10 +20,16 @@ public class BugServiceTest {
 		Bug bug = new Bug();
 		String bugId = bugService.createBug(bug);
 		assertNotNull(bugId);
+
+	}
+
+	/*/@Test
+
 		
 	}
 /*/
 	@Test
+
 	void testGetBugById() {
 		fail("Not yet implemented");
 	}
