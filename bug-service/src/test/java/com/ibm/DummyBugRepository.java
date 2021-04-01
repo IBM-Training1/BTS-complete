@@ -8,6 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
+
 public class DummyBugRepository implements BugRepository {
 
 	@Override
@@ -21,11 +22,13 @@ public class DummyBugRepository implements BugRepository {
 		return null;
 	}
 
+
 	@Override
 	public List<Bug> findAll(Sort sort) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 
 	@Override
 	public <S extends Bug> List<S> insert(Iterable<S> arg0) {
@@ -33,29 +36,39 @@ public class DummyBugRepository implements BugRepository {
 		return null;
 	}
 
+
 	@Override
+
 	public Bug save(Bug bug) {
 		bug.setId("hsdgsaydf2345");
 		return bug;
 	}
 
+
 	@Override
 	public <S extends Bug> List<S> findAll(Example<S> example) {
+
+	
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 
 	@Override
 	public <S extends Bug> List<S> findAll(Example<S> example, Sort sort) {
+
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+
 	@Override
 	public Page<Bug> findAll(Pageable pageable) {
+
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 
 	@Override
 	public <S extends Bug> S insert(S entity) {
@@ -89,15 +102,19 @@ public class DummyBugRepository implements BugRepository {
 
 	@Override
 	public void deleteById(String id) {
+
 		// TODO Auto-generated method stub
 
 	}
+
 
 	@Override
 	public void delete(Bug entity) {
+
 		// TODO Auto-generated method stub
 
 	}
+
 
 	@Override
 	public void deleteAll(Iterable<? extends Bug> entities) {
@@ -113,26 +130,35 @@ public class DummyBugRepository implements BugRepository {
 
 	@Override
 	public <S extends Bug> Optional<S> findOne(Example<S> example) {
+
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 
 	@Override
 	public <S extends Bug> Page<S> findAll(Example<S> example, Pageable pageable) {
+
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+
 	@Override
 	public <S extends Bug> long count(Example<S> example) {
+
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
+
 	@Override
 	public <S extends Bug> boolean exists(Example<S> example) {
+
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+
 
 }
