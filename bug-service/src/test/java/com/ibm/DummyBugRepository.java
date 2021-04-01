@@ -12,19 +12,16 @@ public class DummyBugRepository implements BugRepository {
 
 	@Override
 	public <S extends Bug> List<S> saveAll(Iterable<S> entities) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public List<Bug> findAll() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public List<Bug> findAll(Sort sort) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
