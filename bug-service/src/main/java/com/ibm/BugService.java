@@ -25,4 +25,11 @@ public class BugService {
 	public void updateBug(@RequestBody Bug bug) {
 		bugRepository.save(bug);
 	}
+	public BugRepository getBugRepository() {
+		return bugRepository;
+	}
+
+	public void setBugRepository(BugRepository bugRepository) {
+		this.bugRepository = bugRepository;
+	}
 }
