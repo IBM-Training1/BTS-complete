@@ -36,6 +36,7 @@ public class DummyBugRepository implements BugRepository {
 
 	public Bug save(Bug bug) {
 		bug.setId("hsdgsaydf2345");
+		bug.setStatus(STATUS.VERIFIED);
 		return bug;
 	}
 

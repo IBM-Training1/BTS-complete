@@ -2,9 +2,11 @@ package com.ibm;
 
 import java.util.List;
 import java.util.Optional;
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @Service
 public class BugService {
@@ -35,8 +37,9 @@ public class BugService {
 		return bugRepository.findAll();
 	}
 
-	public void updateBug(@RequestBody Bug bug) {
+	public STATUS updateBugStatus(@Valid Bug bug) {
 		bugRepository.save(bug);
+		return bug.getStatus();
 	}
 	public BugRepository getBugRepository() {
 		return bugRepository;
