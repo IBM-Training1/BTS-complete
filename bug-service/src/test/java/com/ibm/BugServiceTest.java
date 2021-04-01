@@ -5,11 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 
-class BugServiceTest {
 
-	@Test
-	void testCreateBug() 
-    
 public class BugServiceTest {
 
 	@Test
@@ -23,10 +19,7 @@ public class BugServiceTest {
 
 	}
 
-	/*/@Test
-
-		
-	}
+	
 /*/
 	@Test
 
