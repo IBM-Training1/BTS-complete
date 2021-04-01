@@ -17,7 +17,7 @@ public class BugService {
 	 * @param bug
 	 * @return the id
 	 */
-	public String createBug(@RequestBody Bug bug) {
+	public String createBug(Bug bug) {
 		Bug savedBug = bugRepository.save(bug);
 		return savedBug.getId();
 	}
@@ -37,5 +37,12 @@ public class BugService {
 
 	public void updateBug(@RequestBody Bug bug) {
 		bugRepository.save(bug);
+	}
+	public BugRepository getBugRepository() {
+		return bugRepository;
+	}
+
+	public void setBugRepository(BugRepository bugRepository) {
+		this.bugRepository = bugRepository;
 	}
 }
