@@ -25,7 +25,13 @@ public class EmployeeService {
 	public void updateEmployeeDetails(Employee employee) {
 		employeeRepository.save(employee);
 	}
-	
+	public EmployeeRepository getEmployeeRepository() {
+		return employeeRepository;
+	}
+
+	public void setEmployeeRepository(EmployeeRepository employeeRepository) {
+		this.employeeRepository = employeeRepository;
+	}
 	
 
 }
