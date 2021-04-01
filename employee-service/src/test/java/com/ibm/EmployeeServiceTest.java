@@ -8,9 +8,15 @@ class EmployeeServiceTest {
 
 	@Test
 	void testCreateEmployee() {
-		fail("Not yet implemented");
-	}
+		EmployeeService employeeService = new EmployeeService();
+		EmployeeRepository dummyRepo = new DummyEmployeeRepository();
+		employeeService.setEmployeeRepository(dummyRepo);
+		Employee employee = new Employee();
+		String employeeId = employeeService.createEmployee(employee);
+		assertNotNull(employeeId);
 
+	}
+/*/
 	@Test
 	void testGetEmployeeById() {
 		fail("Not yet implemented");
@@ -25,5 +31,5 @@ class EmployeeServiceTest {
 	void testUpdateEmployeeDetails() {
 		fail("Not yet implemented");
 	}
-
+/*/
 }
