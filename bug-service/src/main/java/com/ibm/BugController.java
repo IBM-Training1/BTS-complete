@@ -70,10 +70,10 @@ public class BugController {
 	 * @param bindingResult
 	 */
 	@PutMapping("/bug/{id}")
-	void updateBug(@RequestBody @Valid Bug bug, @PathVariable("id") String bugId, BindingResult bindingResult) {
+	void updateBugStatus(@RequestBody @Valid Bug bug, @PathVariable("id") String bugId, BindingResult bindingResult) {
 		validateModel(bindingResult);
-		System.out.println(bugId);
 		bug.setId(bugId);
-		bugService.updateBug(bug);
+		bugService.updateBugStatus(bug);
+
 	}
 }
