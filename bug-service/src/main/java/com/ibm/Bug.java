@@ -10,32 +10,29 @@ import org.springframework.data.annotation.Id;
 public class Bug {
 	@Id
 	private String id;
-	@NotNull
-	@NotBlank
+	
+
 	private String name;
-	@NotNull
+	
 	private TYPE type;
-	@NotNull
+	
 	private SEVERITY severity;
-	@NotNull
-	@NotBlank
+	
+	
 	private String projectId;
-	@NotNull
+	
 	private PRIORITY priority;
-	@NotNull
+	
 	private STATUS status;
-	@NotNull
-	@NotBlank
+	
 	private String module;
-	@NotNull
-	@NotBlank
-	@Size(min = 5, max = 50, message = "synopsis must be between 5 and 50 characters")
+	
+	
 	private String synopsis;
-	@NotNull
-	@NotBlank
-	@Size(min = 10, max = 200, message = "description must be between 10 and 200 characters")
+	
+	
 	private String description;
-	@NotNull
+	
 	private String product;
 	private String location;
 	private String buildVersion;
