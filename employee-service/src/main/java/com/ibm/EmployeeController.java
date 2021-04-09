@@ -2,7 +2,9 @@ package com.ibm;
 
 import java.util.List;
 import java.util.Optional;
+
 import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
@@ -14,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class BugController {
+public class EmployeeController {
 	@Autowired
-	BugService bugService;
+    EmployeeService employeeService;
 
 
 	/**
@@ -29,51 +31,48 @@ public class BugController {
 			throw new IllegalArgumentException("something went wrong, please try again");
 		}
 	}
-
 	/**
-	 * method to create bug
+	 * method to create employee
 	 * 
-	 * @param bug
+	 * @param employee
 	 * @param bindingResult
 	 * @return the id
 	 */
 
-	@PostMapping("/bug")
-	String createBug(@RequestBody @Valid Bug bug, BindingResult bindingResult) {
+	@PostMapping("/employee")
+	String createEmployee(@RequestBody @Valid Employee employee, BindingResult bindingResult) {
 		validateModel(bindingResult);
-		System.out.println(bug);
-		return bugService.createBug(bug);
+		System.out.println(employee);
+		return employeeService.createEmployee(employee);
 	}
-	
-
 	/**
-	 * method to search bugId
+	 * method to search employeeId
 	 * 
-	 * @param bugId
+	 * @param employeeId
 	 * @return zero or matchingId
 	 */
-	@GetMapping("/bug/{id}")
-	Optional<Bug> getBugById(@PathVariable("id") String bugId) {
-		return bugService.getBugById(bugId);
+	@GetMapping("/employee/{id}")
+	Optional<Employee> getEmployeeById(@PathVariable("id") String employeeId) {
+		return   employeeService.getEmployeeById(employeeId);
 	}
 
-	@GetMapping("/bug")
-	List<Bug> getBugs() {
-		return bugService.getBugs();
+	@GetMapping("/employee")
+	List<Employee> getEmployees() {
+		return employeeService.getEmployees();
 	}
-
 	/**
-	 * updates the changes in Bug
+	 * updates the changes in Employee
 	 * 
-	 * @param bugId
-	 * @param bug
+	 * @param employeeId
+	 * @param employee
 	 * @param bindingResult
 	 */
-	@PutMapping("/bug/{id}")
-	void updateBugStatus(@RequestBody @Valid Bug bug, @PathVariable("id") String bugId, BindingResult bindingResult) {
+	@PutMapping("/employee/{id}")
+	void updateEmployee(@RequestBody @Valid Employee employee, @PathVariable("id") String employeeId, BindingResult bindingResult) {
 		validateModel(bindingResult);
-		bug.setId(bugId);
-		bugService.updateBugStatus(bug);
-
+		System.out.println(employeeId);
+		employee.setId(employeeId);
+		employeeService.updateEmployeeDetails(employee);
 	}
 }
+
