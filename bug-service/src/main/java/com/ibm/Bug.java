@@ -1,5 +1,7 @@
 package com.ibm;
 
+import java.util.Date;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -39,6 +41,7 @@ public class Bug {
 	private String buildVersion;
 	private String developerId;
 	private String testerId;
+	private Date submittedOn;
 
 	public String getName() {
 		return name;
@@ -158,6 +161,14 @@ public class Bug {
 
 	public void setTesterId(String testerId) {
 		this.testerId = testerId;
+	}
+
+	public Date getSubmittedOn() {
+		return submittedOn;
+	}
+
+	public void setSubmittedOn(Date submittedOn) {
+		this.submittedOn = submittedOn;
 	}
 
 }
