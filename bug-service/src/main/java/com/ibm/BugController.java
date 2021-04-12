@@ -1,6 +1,7 @@
 package com.ibm;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,19 +55,16 @@ public class BugController {
 	 * @param bugId
 	 * @return zero or matchingId
 	 */
-	@GetMapping("/bug")
-	List<Bug> getAllBugs(){
-		return bugService.getAllBugs();
+	
+	@GetMapping("/bug/{id}")
+	Optional<Bug> getBugById(@PathVariable("id") String bugId) {
+		return bugService.getBugById(bugId);
 	}
-//	@GetMapping("/bug/{id}")
-//	Optional<Bug> getBugById(@PathVariable("id") String bugId) {
-//		return bugService.getBugById(bugId);
-//	}
-//
-//	@GetMapping("/bug")
-//	List<Bug> getBugs() {
-//		return bugService.getBugs();
-//	}
+
+	@GetMapping("/bug")
+	List<Bug> getBugs() {
+		return bugService.getBugs();
+	}
 
 	/**
 	 * updates the changes in Bug
