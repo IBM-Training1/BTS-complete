@@ -29,6 +29,7 @@ public class BugService {
 	 * @param bugId
 	 * @return bug details
 	 */
+	
 	public Optional<Bug> getBugById(String bugId) {
 		return bugRepository.findById(bugId);
 	}
@@ -47,5 +48,10 @@ public class BugService {
 
 	public void setBugRepository(BugRepository bugRepository) {
 		this.bugRepository = bugRepository;
+	}
+
+	public List<Bug> getAllBugs() {
+		
+		return  bugRepository.findAll();
 	}
 }
