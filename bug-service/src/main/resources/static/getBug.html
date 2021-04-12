@@ -64,6 +64,11 @@ table.appendChild(row);
 }
 <!---get by id--->
 function getBug() {
+	const updateBug = document.getElementById('updateBug');
+    if (!updateBug.checkValidity()) {
+        alert('form is invalid');
+        return;
+    }
    let id = document.getElementById('bugId').value;
    const promise = fetch('/bug/' + id);
    promise.then(function(response) {
@@ -139,14 +144,19 @@ return response.json();
 		<br>
 
 		<div class="center" id="box">
+		<form id="updateBug">
 			<table class="table">
 				<tr>
 					<td>Bug Id:</td>
-					<td><input id="bugId" placeholder=""></td>
+					<td><input id="bugId" placeholder="" required></td>
+					
 				</tr>
+				
 
 
 			</table>
+			<h6>Required field</h6>
+			
 
 			<a class="btn btn-first" onclick="getBug()" href="#">Search</a>
 		</div>
@@ -174,6 +184,8 @@ return response.json();
 
 		</div>
 		<br> <br>
+		
+		</form>
 	</div>
 </body>
 

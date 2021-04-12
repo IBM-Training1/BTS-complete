@@ -31,10 +31,11 @@ li a{
 .table
 {
     border: white;
-    width: 30%;
+    width: 40%;
     padding: 8px;
     color: black;
-    font-size: 12px;
+    font-size: 20px;
+    
 }
 .center {
     margin: auto;
@@ -42,7 +43,7 @@ li a{
     border: 3px solid #73AD21;
     padding: 10px;
     color:black;
-    font-size: 20px;
+    font-size: 30px;
     
   }
   #box {
@@ -66,34 +67,7 @@ li a{
 a.btn-first:hover {
   background-color: #09e639;
 }
-#tab {
-    margin: auto;
-    width: 80%;
-    border: 3px solid black;
-    padding: 10px;
-    color:black;
-    font-size: 20px;
-    border-collapse: collapse;
-  }
-  
-  #tab td, #tab th {
-    border: 1px solid #ddd;
-    padding: 8px;
-    border-collapse: collapse;
-  }
-  
-  #tab tr:nth-child(even){background-color: #f2f2f2;}
-  
-  #tab tr:hover {background-color: #ddd;}
-  
-#tab th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color:grey;
-    color: white;
-    border-collapse: collapse;
-  }
+
   .background
   {
     background-color: cornsilk;

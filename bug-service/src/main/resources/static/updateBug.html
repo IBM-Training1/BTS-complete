@@ -12,6 +12,32 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <title>Update Bug</title>
+<script type="text/javascript">
+			function updateBugStatus() {
+				
+				 const updateBug = document.getElementById('updateBug');
+				    if (!updateBug.checkValidity()) {
+				        alert('form is invalid');
+				        return;
+				    }
+				let id = document.getElementById('bugId').value;
+				fetch('/bug/' + id, {
+					method : 'PUT',
+					headers : {
+						'Content-Type' : 'application/json'
+					},
+					body : JSON
+							.stringify({
+
+								status : document.getElementById('cars').value,
+								description : document.getElementById('description').value,
+
+							})
+				});
+
+				alert("Bug has been updated!");
+			}
+		</script>
 </head>
 <body>
 	<header class="header">
@@ -35,27 +61,7 @@
 			</div>
 
 		</nav>
-		<script type="text/javascript">
-			function updateBugStatus() {
-				
-				let id = document.getElementById('bugId').value;
-				fetch('/bug/' + id, {
-					method : 'PUT',
-					headers : {
-						'Content-Type' : 'application/json'
-					},
-					body : JSON
-							.stringify({
-
-								status : document.getElementById('cars').value,
-								description : document.getElementById('description').value,
-
-							})
-				});
-
-				alert("Bug has been updated!");
-			}
-		</script>
+		
 	</header>
 	<form id="updateBug">
 	<div class="background">
@@ -69,9 +75,9 @@
 				</tr>
 				<tr>
 					<td>Description</td>
-					<td><textarea minlength="5" maxlength="1000" class="form-control"
-                    placeholder="Please type your comment in less than 1000 characters" id="description"
-                    required></textarea></td>
+					<td><textarea minlength="5" maxlength="100" class="form-control"
+                    placeholder="Please type your comment in less than 100 characters" required id="description"
+                    ></textarea></td>
 				</tr>
 				<tr>
 					<td>Status:</td>
@@ -83,7 +89,7 @@
 							<option value="VERIFIED">VERIFIED</option>
 							<option value="ASSIGNED">ASSIGNED</option>
 							<option value="FIXED">FIXED</option>
-							<option value="PENDING">PENDING</option>
+							<option value="PENDING_REQUEST">PENDING_REQUEST</option>
 							<option value="CLOSED">CLOSED</option>
 					</select></td>
 				</tr>
