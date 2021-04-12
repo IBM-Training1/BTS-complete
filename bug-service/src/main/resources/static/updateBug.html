@@ -37,6 +37,7 @@
 		</nav>
 		<script type="text/javascript">
 			function updateBugStatus() {
+				
 				let id = document.getElementById('bugId').value;
 				fetch('/bug/' + id, {
 					method : 'PUT',
@@ -56,6 +57,7 @@
 			}
 		</script>
 	</header>
+	<form id="updateBug">
 	<div class="background">
 		<br>
 		<br>
@@ -63,15 +65,18 @@
 			<table class="table">
 				<tr>
 					<td>Bug Id:</td>
-					<td><input id="bugId" placeholder=""></td>
+					<td><input id="bugId" placeholder="Enter Bug ID"  required></td>
 				</tr>
 				<tr>
 					<td>Description</td>
-					<td><input id="description" placeholder=""></td>
+					<td><textarea minlength="5" maxlength="1000" class="form-control"
+                    placeholder="Please type your comment in less than 1000 characters" id="description"
+                    required></textarea></td>
 				</tr>
 				<tr>
 					<td>Status:</td>
-					<td><select id="cars">
+					<td><select id="cars" required>
+					<option value="" disabled selected>Select Option</option>
 							<option value="NEW">NEW</option>
 							<option value="OPEN">OPEN</option>
 							<option value="REOPEN">REOPEN</option>
@@ -87,6 +92,10 @@
 			<a class="btn btn-first" onclick="updateBugStatus()">Update Bug</a>
 		</div>
 	</div>
+	<p style="margin-top:30px">
+            <span class="required control-label"></span>Required field
+        </p>
+	</form>
 </body>
 
 </html>
