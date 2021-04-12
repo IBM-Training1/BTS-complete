@@ -50,8 +50,4 @@ public class BugService {
 		this.bugRepository = bugRepository;
 	}
 
-	public List<Bug> getAllBugs() {
-		
-		return  bugRepository.findAll();
-	}
 }
