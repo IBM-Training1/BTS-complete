@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="getBug.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<title>Search Bug</title>
+<script>
+function getBugs() {
+const promise = fetch("/bug");
+promise.then(function(response) {
+return response.json();
+}).then(function(bugs) {
+
+const table = document.getElementById('bugsTable');
+for (let index = 0; index < bugs.length; index++) {
+console.log(bugs[index]);
+const currentBugs = bugs[index];
+const row = document.createElement('tr');
+const nameColumn = document.createElement('td');
+const typeColumn = document.createElement('td');
+const severityColumn = document.createElement('td');
+const projectIdColumn = document.createElement('td');
+const priorityColumn = document.createElement('td');
+const statusColumn = document.createElement('td');
+const moduleColumn = document.createElement('td');
+const synopsisColumn = document.createElement('td');
+const descriptionColumn = document.createElement('td');
+const productColumn = document.createElement('td');
+const submittedOnColumn = document.createElement('td');
+nameColumn.append(currentBugs.name);
+typeColumn.append(currentBugs.type);
+severityColumn.append(currentBugs.severity);
+projectIdColumn.append(currentBugs.projectId);
+priorityColumn.append(currentBugs.priority);
+statusColumn.append(currentBugs.status);
+moduleColumn.append(currentBugs.module);
+synopsisColumn.append(currentBugs.synopsis);
+descriptionColumn.append(currentBugs.description);
+productColumn.append(currentBugs.product);
+submittedOnColumn.append(currentBugs.submittedOn);
+
+row.appendChild(nameColumn);
+row.appendChild(typeColumn);
+row.appendChild(severityColumn);
+row.appendChild(projectIdColumn);
+row.appendChild(priorityColumn);
+row.appendChild(statusColumn);
+row.appendChild(moduleColumn);
+row.appendChild(synopsisColumn);
+row.appendChild(descriptionColumn);
+row.appendChild(productColumn);
+row.appendChild(submittedOnColumn);
+table.appendChild(row);
+}
+})
+}
+<!---get by id--->
+function getBug() {
+	const updateBug = document.getElementById('updateBug');
+    if (!updateBug.checkValidity()) {
+        alert('form is invalid');
+        return;
+    }
+   let id = document.getElementById('bugId').value;
+   const promise = fetch('/bug/' + id);
+   promise.then(function(response) {
+return response.json();
+}).then(function(bug) {
+           const table = document.getElementById('bugsTable');
+           const row = document.createElement('tr');
+           const nameColumn = document.createElement('td');
+           const descriptionColumn = document.createElement('td');
+           const statusColumn = document.createElement('td');
+           const priorityColumn = document.createElement('td');
+           const typeColumn = document.createElement('td');
+           const submittedOnColumn = document.createElement('td');
+           const synopsisColumn = document.createElement('td');
+           const severityColumn = document.createElement('td');
+           const projectIdColumn = document.createElement('td');
+           const moduleColumn = document.createElement('td');
+           const productColumn = document.createElement('td');
+
+           nameColumn.append(bug.name);
+           descriptionColumn.append(bug.description);
+           statusColumn.append(bug.status);
+           priorityColumn.append(bug.priority);
+           typeColumn.append(bug.type);
+           submittedOnColumn.append(bug.submittedOn);
+           synopsisColumn.append(bug.synopsis);
+           severityColumn.append(bug.severity);
+           projectIdColumn.append(bug.projectId);
+           moduleColumn.append(bug.module);
+           productColumn.append(bug.product);
+           row.appendChild(nameColumn);
+           row.appendChild(descriptionColumn);
+           row.appendChild(statusColumn);
+           row.appendChild(priorityColumn);
+           row.appendChild(typeColumn);
+           row.appendChild(submittedOnColumn);
+           row.appendChild(synopsisColumn);
+           row.appendChild(severityColumn);
+           row.appendChild(projectIdColumn);
+           row.appendChild(moduleColumn);
+           row.appendChild(productColumn);
+           
+           table.appendChild(row);
+       })
+}
+</script>
+</head>
+
+<body>
+	<header class="header">
+		<nav class="navbar navbar-style">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse"
+						data-target="#menu">
+						<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<a href=""><img class="logo" src="logo.png"></a>
+				</div>
+				<div class="collapse navbar-collapse" id="menu">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="index.html">Home</a></li>
+						<li><a href="aboutUs.html">About Us</a></li>
+						<li><a href="contactUs.html">Help</a></li>
+					</ul>
+				</div>
+			</div>
+
+		</nav>
+	</header>
+	<div class="background">
+		<br>
+
+		<div class="center" id="box">
+		<form id="updateBug">
+			<table class="table">
+				<tr>
+					<td>Bug Id:</td>
+					<td><input id="bugId" placeholder="" required></td>
+					
+				</tr>
+				
+
+
+			</table>
+			<h6>Required field</h6>
+			
+
+			<a class="btn btn-first" onclick="getBug()" href="#">Search</a>
+		</div>
+		<br> <br>
+		<div class="table-responsive">
+
+			<table class=" table table-bordered " style="border: 2px solid #000000; margin-top:50px">
+				<thead>
+					<td scope="col" style="border: 2px solid #000000;">Name</td>
+					<td scope="col" style="border: 2px solid #000000;">Description</td>
+					<td scope="col" style="border: 2px solid #000000;">Status</td>
+					<td scope="col" style="border: 2px solid #000000;">Priority</td>
+					<td scope="col" style="border: 2px solid #000000;">Type</td>
+					<td scope="col" style="border: 2px solid #000000;">SubmittedOn</td>
+					<td scope="col" style="border: 2px solid #000000;">Synopsis</td>
+					<td scope="col" style="border: 2px solid #000000;">Severity</td>
+					<td scope="col" style="border: 2px solid #000000;">ProjectId</td>
+					<td scope="col" style="border: 2px solid #000000;">Module</td>
+					<td scope="col" style="border: 2px solid #000000;">Product</td>
+
+
+				</thead>
+				<tbody id='bugsTable' style="border: 2px solid #000000"></tbody>
+			</table>
+
+		</div>
+		<br> <br>
+		
+		</form>
+	</div>
+</body>
+
+</html>

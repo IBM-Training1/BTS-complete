@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="updateBug.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<title>Update Bug</title>
+<script type="text/javascript">
+			function updateBugStatus() {
+				
+				 const updateBug = document.getElementById('updateBug');
+				    if (!updateBug.checkValidity()) {
+				        alert('form is invalid');
+				        return;
+				    }
+				let id = document.getElementById('bugId').value;
+				fetch('/bug/' + id, {
+					method : 'PUT',
+					headers : {
+						'Content-Type' : 'application/json'
+					},
+					body : JSON
+							.stringify({
+
+								status : document.getElementById('cars').value,
+								description : document.getElementById('description').value,
+
+							})
+				});
+
+				alert("Bug has been updated!");
+			}
+		</script>
+</head>
+<body>
+	<header class="header">
+		<nav class="navbar navbar-style">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse"
+						data-target="#menu">
+						<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<a href=""><img class="logo" src="logo.png"></a>
+				</div>
+				<div class="collapse navbar-collapse" id="menu">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="index.html">Home</a></li>
+						<li><a href="aboutUs.html">About Us</a></li>
+						<li><a href="contactUs.html">Help</a></li>
+					</ul>
+				</div>
+			</div>
+
+		</nav>
+		
+	</header>
+	<form id="updateBug">
+	<div class="background">
+		<br>
+		<br>
+		<div class="center" id="box">
+			<table class="table">
+				<tr>
+					<td>Bug Id:</td>
+					<td><input id="bugId" placeholder="Enter Bug ID"  required></td>
+				</tr>
+				<tr>
+					<td>Description</td>
+					<td><textarea minlength="5" maxlength="100" class="form-control"
+                    placeholder="Please type your comment in less than 100 characters" required id="description"
+                    ></textarea></td>
+				</tr>
+				<tr>
+					<td>Status:</td>
+					<td><select id="cars" required>
+					<option value="" disabled selected>Select Option</option>
+							<option value="NEW">NEW</option>
+							<option value="OPEN">OPEN</option>
+							<option value="REOPEN">REOPEN</option>
+							<option value="VERIFIED">VERIFIED</option>
+							<option value="ASSIGNED">ASSIGNED</option>
+							<option value="FIXED">FIXED</option>
+							<option value="PENDING_REQUEST">PENDING_REQUEST</option>
+							<option value="CLOSED">CLOSED</option>
+					</select></td>
+				</tr>
+			</table>
+
+			<a class="btn btn-first" onclick="updateBugStatus()">Update Bug</a>
+		</div>
+	</div>
+	<p style="margin-top:30px">
+            <span class="required control-label"></span>Required field
+        </p>
+	</form>
+</body>
+
+</html>
