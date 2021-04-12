@@ -37,7 +37,7 @@
 				synopsis : document.getElementById('synopsis').value,
 				description : document.getElementById('description').value,
 				product : document.getElementById('product').value,
-				submittedOn : document.getElementById('submit').value,
+				submittedOn : document.getElementById('submit').valueAsDate
 			})
 		});
 		promise.then(success);
