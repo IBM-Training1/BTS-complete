@@ -21,6 +21,11 @@
 		function errorHandler(error) {
 			console.log(error);
 		}
+		 const updateBug = document.getElementById('updateBug');
+		    if (!updateBug.checkValidity()) {
+		        alert('form is invalid');
+		        return;
+		    }
 		const promise = fetch('/bug', {
 			method : 'POST',
 			headers : {
@@ -74,21 +79,22 @@
 		</nav>
 	</header>
 	<div class="container" id="create">
+	<form id="updateBug">
 		<p class="para1">Create Bug</p>
 		<table class="table">
 			<tr>
 				<td>Name</td>
-				<td><input type="text" id="name"></td>
+				<td><input type="text" id="name" required></td>
 				<td>ProjectId</td>
-				<td><input type="text" id="project"></td>
+				<td><input type="text" id="project" required></td>
 
 			</tr>
 			<tr>
 				<td>Module</td>
-				<td><input type="text" id="module"></td>
+				<td><input type="text" id="module" required></td>
 				<td>Type</td>
-				<td><select id="type">
-						<option>Choose value</option>
+				<td><select id="type" required>
+						<option value="" disabled selected>Choose value</option>
 						<option value="RUNTIME">RUNTIME</option>
 						<option value="COMPILETIME">COMPILETIME</option>
 						<option value="ARITHMETIC">ARITHMETIC</option>
@@ -98,10 +104,10 @@
 			</tr>
 			<tr>
 				<td>Product</td>
-				<td><input type="text" id="product"></td>
+				<td><input type="text" id="product" required></td>
 				<td>Status</td>
-				<td><select name="Status" id="Status">
-						<option>Choose value</option>
+				<td><select name="Status" id="Status" required>
+						<option value="" disabled selected>Choose value</option>
 						<option value="NEW">NEW</option>
 						<option value="OPEN">OPEN</option>
 						<option value="FIXED">FIXED</option>
@@ -116,10 +122,12 @@
 			</tr>
 			<tr>
 				<td>Synopsis</td>
-				<td><input type="text" id="synopsis"></td>
+				<td><textarea minlength="5" maxlength="50" class="form-control"
+                    placeholder="Please type your comment in less than 50 characters" id="synopsis" required
+                    ></textarea></td>
 				<td>Severity</td>
-				<td><select id="severity">
-						<option>Choose value</option>
+				<td><select id="severity" required>
+						<option value="" disabled selected>Choose value</option>
 						<option value="SEVERE">SEVERE</option>
 						<option value="MILD">MILD</option>
 						<option value="LOW">LOW</option>
@@ -127,10 +135,12 @@
 			</tr>
 			<tr>
 				<td>Description</td>
-				<td><input type="text" id="description"></td>
+				<td><textarea minlength="5" maxlength="100" class="form-control"
+                    placeholder="Please type your comment in less than 100 characters" required id="description"
+                    ></textarea></td>
 				<td>Priority</td>
-				<td><select name="Priority" id="Priority">
-						<option>Choose value</option>
+				<td><select name="Priority" id="Priority" required>
+						<option value="" disabled selected>Choose value</option>
 						<option value="HIGH">HIGH</option>
 						<option value="MEDIUM">MEDIUM</option>
 						<option value="LOW">LOW</option>
@@ -146,6 +156,9 @@
 
 			</tr>
 		</table>
-
+		<p style="margin-top:30px">
+            <span class="required control-label"></span>Required field
+        </p>
+</form>
 	</div>
 </body>
