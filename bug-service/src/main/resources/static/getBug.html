@@ -38,7 +38,7 @@
 					const statusColumn = document.createElement('td');
 					const priorityColumn = document.createElement('td');
 					const typeColumn = document.createElement('td');
-					const submittedOnColumn = document.createElement('td');
+					const buildVersionColumn = document.createElement('td');
 					const synopsisColumn = document.createElement('td');
 					const severityColumn = document.createElement('td');
 					const projectIdColumn = document.createElement('td');
@@ -51,7 +51,7 @@
 					statusColumn.append(bug.status);
 					priorityColumn.append(bug.priority);
 					typeColumn.append(bug.type);
-					submittedOnColumn.append(bug.submittedOn);
+					buildVersionColumn.append(bug.submittedOn);
 					synopsisColumn.append(bug.synopsis);
 					severityColumn.append(bug.severity);
 					projectIdColumn.append(bug.projectId);
@@ -63,7 +63,7 @@
 					row.appendChild(statusColumn);
 					row.appendChild(priorityColumn);
 					row.appendChild(typeColumn);
-					row.appendChild(submittedOnColumn);
+					row.appendChild(buildVersionColumn);
 					row.appendChild(synopsisColumn);
 					row.appendChild(severityColumn);
 					row.appendChild(projectIdColumn);
@@ -131,7 +131,7 @@
 					<td scope="col" style="border: 2px solid #000000;">Status</td>
 					<td scope="col" style="border: 2px solid #000000;">Priority</td>
 					<td scope="col" style="border: 2px solid #000000;">Type</td>
-					<td scope="col" style="border: 2px solid #000000;">SubmittedOn</td>
+					<td scope="col" style="border: 2px solid #000000;">BuildVersion</td>
 					<td scope="col" style="border: 2px solid #000000;">Synopsis</td>
 					<td scope="col" style="border: 2px solid #000000;">Severity</td>
 					<td scope="col" style="border: 2px solid #000000;">ProjectId</td>
