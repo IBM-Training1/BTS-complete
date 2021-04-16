@@ -11,14 +11,12 @@ public class Bug {
 	@Id
 	private String id;
 	
-
 	private String name;
 	
 	private TYPE type;
 	
 	private SEVERITY severity;
-	
-	
+		
 	private String projectId;
 	
 	private PRIORITY priority;
@@ -27,9 +25,7 @@ public class Bug {
 	
 	private String module;
 	
-	
 	private String synopsis;
-	
 	
 	private String description;
 	
@@ -39,6 +35,7 @@ public class Bug {
 	private String developerId;
 	private String testerId;
 	private Date submittedOn;
+	private Date eta;
 
 	public String getName() {
 		return name;
@@ -125,8 +122,18 @@ public class Bug {
 	}
 
 	public void setStatus(STATUS status) {
-		this.status = status;
-	}
+		if(status==STATUS.NOT_A_BUG || status==STATUS.DUPLICATE || status==STATUS.REJECTED || status==STATUS.WONT_FIX ) {
+			this.status = STATUS.CLOSED;
+		}
+		else if(status==STATUS.DEFERRED || status==STATUS.NEED_MORE_INFO ) {
+			this.status = STATUS.ASSIGNED;
+		}
+		else {
+			this.status = status;
+		}
+		}
+		
+	
 
 	public String getLocation() {
 		return location;
@@ -165,7 +172,19 @@ public class Bug {
 	}
 
 	public void setSubmittedOn(Date submittedOn) {
+		
 		this.submittedOn = submittedOn;
+	}
+
+	public Date getEta() {
+		return eta;
+	}
+
+	public void setEta(Date eta) {
+		if (eta.compareTo(new Date()) < 0) {
+			throw new IllegalArgumentException("ETA cannot be past date");
+		}
+		this.eta = eta;
 	}
 
 }

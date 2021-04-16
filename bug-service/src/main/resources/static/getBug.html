@@ -14,107 +14,129 @@
 <title>Search Bug</title>
 <script>
 function getBugs() {
-const promise = fetch("/bug");
-promise.then(function(response) {
-return response.json();
-}).then(function(bugs) {
+    const promise = fetch('/bug');
+    promise.then(function (response) {
+        return response.json();
+    })
+        .then(function (bugs) {
+            console.log(bugs);
+            const table = document.getElementById('bugsTable');
+            table.innerHTML = "";
+            for (let index = 0; index < bugs.length; index++) {
+                console.log(bugs[index]);
+                const currentBug = bugs[index];
+                const row = document.createElement('tr');
+                const nameColumn = document.createElement('td');
+				//const descriptionColumn = document.createElement('td');
+				const statusColumn = document.createElement('td');
+				const priorityColumn = document.createElement('td');
+				const typeColumn = document.createElement('td');
+				const buildVersionColumn = document.createElement('td');
+				const synopsisColumn = document.createElement('td');
+				const severityColumn = document.createElement('td');
+				const projectIdColumn = document.createElement('td');
+				const moduleColumn = document.createElement('td');
+				const productColumn = document.createElement('td');
+				const etaColumn = document.createElement('td');
 
-const table = document.getElementById('bugsTable');
-for (let index = 0; index < bugs.length; index++) {
-console.log(bugs[index]);
-const currentBugs = bugs[index];
-const row = document.createElement('tr');
-const nameColumn = document.createElement('td');
-const typeColumn = document.createElement('td');
-const severityColumn = document.createElement('td');
-const projectIdColumn = document.createElement('td');
-const priorityColumn = document.createElement('td');
-const statusColumn = document.createElement('td');
-const moduleColumn = document.createElement('td');
-const synopsisColumn = document.createElement('td');
-const descriptionColumn = document.createElement('td');
-const productColumn = document.createElement('td');
-const submittedOnColumn = document.createElement('td');
-nameColumn.append(currentBugs.name);
-typeColumn.append(currentBugs.type);
-severityColumn.append(currentBugs.severity);
-projectIdColumn.append(currentBugs.projectId);
-priorityColumn.append(currentBugs.priority);
-statusColumn.append(currentBugs.status);
-moduleColumn.append(currentBugs.module);
-synopsisColumn.append(currentBugs.synopsis);
-descriptionColumn.append(currentBugs.description);
-productColumn.append(currentBugs.product);
-submittedOnColumn.append(currentBugs.submittedOn);
+				nameColumn.append(bugs.name);
+				//descriptionColumn.append(bug.description);
+				statusColumn.append(bugs.status);
+				priorityColumn.append(bugs.priority);
+				typeColumn.append(bugs.type);
+				buildVersionColumn.append(bugs.submittedOn);
+				synopsisColumn.append(bugs.synopsis);
+				severityColumn.append(bugs.severity);
+				projectIdColumn.append(bugs.projectId);
+				moduleColumn.append(bugs.module);
+				productColumn.append(bugs.product);
+				etaColumn.append(bugs.eta);
+				row.appendChild(nameColumn);
+				//row.appendChild(descriptionColumn);
+				row.appendChild(statusColumn);
+				row.appendChild(priorityColumn);
+				row.appendChild(typeColumn);
+				row.appendChild(buildVersionColumn);
+				row.appendChild(synopsisColumn);
+				row.appendChild(severityColumn);
+				row.appendChild(projectIdColumn);
+				row.appendChild(moduleColumn);
+				row.appendChild(productColumn);
+				row.appendChild(etaColumn);
 
-row.appendChild(nameColumn);
-row.appendChild(typeColumn);
-row.appendChild(severityColumn);
-row.appendChild(projectIdColumn);
-row.appendChild(priorityColumn);
-row.appendChild(statusColumn);
-row.appendChild(moduleColumn);
-row.appendChild(synopsisColumn);
-row.appendChild(descriptionColumn);
-row.appendChild(productColumn);
-row.appendChild(submittedOnColumn);
-table.appendChild(row);
+				table.appendChild(row);
+            }
+        })
 }
-})
-}
-<!---get by id--->
+         		
 function getBug() {
-	const updateBug = document.getElementById('updateBug');
-    if (!updateBug.checkValidity()) {
-        alert('form is invalid');
-        return;
-    }
-   let id = document.getElementById('bugId').value;
-   const promise = fetch('/bug/' + id);
-   promise.then(function(response) {
-return response.json();
-}).then(function(bug) {
-           const table = document.getElementById('bugsTable');
-           const row = document.createElement('tr');
-           const nameColumn = document.createElement('td');
-           const descriptionColumn = document.createElement('td');
-           const statusColumn = document.createElement('td');
-           const priorityColumn = document.createElement('td');
-           const typeColumn = document.createElement('td');
-           const submittedOnColumn = document.createElement('td');
-           const synopsisColumn = document.createElement('td');
-           const severityColumn = document.createElement('td');
-           const projectIdColumn = document.createElement('td');
-           const moduleColumn = document.createElement('td');
-           const productColumn = document.createElement('td');
+	const getBug = document.getElementById('getBug');
+	if (!getBug.checkValidity()) {
+		alert('form is invalid');
+		return;
+	}
+	let id = document.getElementById('bugId').value;
+	id = id.trim();
+	if (bugId) {
+		const promise = fetch('/bug/' + id);
+		promise.then(function(response) {
+			return response.json();
+		}).then(function(bug) {
+			if (bug) {
+				const table = document.getElementById('bugsTable');
+				const rows=table.children.length;
+				for(let count=0;count<rows;count++){
+					table.children[0].remove();
+				}
+				const row = document.createElement('tr');
+				const nameColumn = document.createElement('td');
+				//const descriptionColumn = document.createElement('td');
+				const statusColumn = document.createElement('td');
+				const priorityColumn = document.createElement('td');
+				const typeColumn = document.createElement('td');
+				const buildVersionColumn = document.createElement('td');
+				const synopsisColumn = document.createElement('td');
+				const severityColumn = document.createElement('td');
+				const projectIdColumn = document.createElement('td');
+				const moduleColumn = document.createElement('td');
+				const productColumn = document.createElement('td');
+				const etaColumn = document.createElement('td');
 
-           nameColumn.append(bug.name);
-           descriptionColumn.append(bug.description);
-           statusColumn.append(bug.status);
-           priorityColumn.append(bug.priority);
-           typeColumn.append(bug.type);
-           submittedOnColumn.append(bug.submittedOn);
-           synopsisColumn.append(bug.synopsis);
-           severityColumn.append(bug.severity);
-           projectIdColumn.append(bug.projectId);
-           moduleColumn.append(bug.module);
-           productColumn.append(bug.product);
-           row.appendChild(nameColumn);
-           row.appendChild(descriptionColumn);
-           row.appendChild(statusColumn);
-           row.appendChild(priorityColumn);
-           row.appendChild(typeColumn);
-           row.appendChild(submittedOnColumn);
-           row.appendChild(synopsisColumn);
-           row.appendChild(severityColumn);
-           row.appendChild(projectIdColumn);
-           row.appendChild(moduleColumn);
-           row.appendChild(productColumn);
-           
-           table.appendChild(row);
-       })
-}
-</script>
+				nameColumn.append(bug.name);
+				//descriptionColumn.append(bug.description);
+				statusColumn.append(bug.status);
+				priorityColumn.append(bug.priority);
+				typeColumn.append(bug.type);
+				buildVersionColumn.append(bug.submittedOn);
+				synopsisColumn.append(bug.synopsis);
+				severityColumn.append(bug.severity);
+				projectIdColumn.append(bug.projectId);
+				moduleColumn.append(bug.module);
+				productColumn.append(bug.product);
+				etaColumn.append(bug.eta);
+				row.appendChild(nameColumn);
+				//row.appendChild(descriptionColumn);
+				row.appendChild(statusColumn);
+				row.appendChild(priorityColumn);
+				row.appendChild(typeColumn);
+				row.appendChild(buildVersionColumn);
+				row.appendChild(synopsisColumn);
+				row.appendChild(severityColumn);
+				row.appendChild(projectIdColumn);
+				row.appendChild(moduleColumn);
+				row.appendChild(productColumn);
+				row.appendChild(etaColumn);
+
+				table.appendChild(row);
+			} else {
+				alert("invalid bug Id");
+			}
+		});
+
+	} else {
+		alert("invalid Bug Id");
+	}
+}</script>
 </head>
 
 <body>
@@ -144,48 +166,49 @@ return response.json();
 		<br>
 
 		<div class="center" id="box">
-		<form id="updateBug">
-			<table class="table">
-				<tr>
-					<td>Bug Id:</td>
-					<td><input id="bugId" placeholder="" required></td>
-					
-				</tr>
-				
-
-
-			</table>
-			<h6>Required field</h6>
-			
-
-			<a class="btn btn-first" onclick="getBug()" href="#">Search</a>
+			<form id="getBug">
+				<table class="table">
+					<tr>
+						<td>Bug Id:</td>
+						<td><input id="bugId" placeholder="" required></td>
+					</tr>
+				</table>
+				<h6>Required field</h6>
+				<a class="btn btn-first" onclick="getBug()" href="#">Search</a>
+				<a class="btn btn-first" onclick="getBugs()" href="#">Get All Bugs</a>
 		</div>
 		<br> <br>
 		<div class="table-responsive">
 
-			<table class=" table table-bordered " style="border: 2px solid #000000; margin-top:50px">
-				<thead>
+			<table class=" table table-bordered "
+				style="border: 2px solid #000000; margin-top: 50px">
+				<thead style="background-color:grey; color:white">
 					<td scope="col" style="border: 2px solid #000000;">Name</td>
-					<td scope="col" style="border: 2px solid #000000;">Description</td>
 					<td scope="col" style="border: 2px solid #000000;">Status</td>
 					<td scope="col" style="border: 2px solid #000000;">Priority</td>
 					<td scope="col" style="border: 2px solid #000000;">Type</td>
-					<td scope="col" style="border: 2px solid #000000;">SubmittedOn</td>
+					<td scope="col" style="border: 2px solid #000000;">BuildVersion</td>
 					<td scope="col" style="border: 2px solid #000000;">Synopsis</td>
 					<td scope="col" style="border: 2px solid #000000;">Severity</td>
 					<td scope="col" style="border: 2px solid #000000;">ProjectId</td>
 					<td scope="col" style="border: 2px solid #000000;">Module</td>
 					<td scope="col" style="border: 2px solid #000000;">Product</td>
-
-
+					<td scope="col" style="border: 2px solid #000000;">Estimated Date</td>
 				</thead>
-				<tbody id='bugsTable' style="border: 2px solid #000000"></tbody>
+				<tbody id='bugsTable' style="border: 2px solid #000000;"></tbody>
 			</table>
-
 		</div>
 		<br> <br>
-		
 		</form>
+		<br>
+		<footer class="page-footer font-small blue" id="footer">
+
+			<div class="footer-copyright text-center py-3">
+				<small>© 2021 Copyright ServerMonks</small>
+
+			</div>
+
+		</footer>
 	</div>
 </body>
 
