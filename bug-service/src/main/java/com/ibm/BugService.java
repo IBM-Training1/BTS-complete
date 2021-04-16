@@ -30,9 +30,10 @@ public class BugService {
 	 * @return bug details
 	 */
 	
-	public Optional<Bug> getBugById(String bugId) {
-		return bugRepository.findById(bugId);
+	public Optional<Bug> getBug(String bugName) {
+		return bugRepository.findByName(bugName);
 	}
+
 
 	public List<Bug> getBugs() {
 		return bugRepository.findAll();
@@ -154,5 +155,7 @@ public class BugService {
 	public void setBugRepository(BugRepository bugRepository) {
 		this.bugRepository = bugRepository;
 	}
+
+	
 
 }
