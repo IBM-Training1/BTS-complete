@@ -39,18 +39,18 @@ function getBugs() {
 				const productColumn = document.createElement('td');
 				const etaColumn = document.createElement('td');
 
-				nameColumn.append(bugs.name);
+				nameColumn.append(currentBug.name);
 				//descriptionColumn.append(bug.description);
-				statusColumn.append(bugs.status);
-				priorityColumn.append(bugs.priority);
-				typeColumn.append(bugs.type);
-				buildVersionColumn.append(bugs.submittedOn);
-				synopsisColumn.append(bugs.synopsis);
-				severityColumn.append(bugs.severity);
-				projectIdColumn.append(bugs.projectId);
-				moduleColumn.append(bugs.module);
-				productColumn.append(bugs.product);
-				etaColumn.append(bugs.eta);
+				statusColumn.append(currentBug.status);
+				priorityColumn.append(currentBug.priority);
+				typeColumn.append(currentBug.type);
+				buildVersionColumn.append(currentBug.buildVersion);
+				synopsisColumn.append(currentBug.synopsis);
+				severityColumn.append(currentBug.severity);
+				projectIdColumn.append(currentBug.projectId);
+				moduleColumn.append(currentBug.module);
+				productColumn.append(currentBug.product);
+				etaColumn.append(currentBug.eta);
 				row.appendChild(nameColumn);
 				//row.appendChild(descriptionColumn);
 				row.appendChild(statusColumn);
@@ -107,7 +107,7 @@ function getBug() {
 				statusColumn.append(bug.status);
 				priorityColumn.append(bug.priority);
 				typeColumn.append(bug.type);
-				buildVersionColumn.append(bug.submittedOn);
+				buildVersionColumn.append(bug.buildVersion);
 				synopsisColumn.append(bug.synopsis);
 				severityColumn.append(bug.severity);
 				projectIdColumn.append(bug.projectId);

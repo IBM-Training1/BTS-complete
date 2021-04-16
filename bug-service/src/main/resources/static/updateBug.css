@@ -28,24 +28,7 @@ li a{
 {
     background: darkorange;
 }
-.center {
-    margin: auto;
-    width: 60%;
-    border: 3px solid #73AD21;
-    padding: 10px;
-    color:black;
-    font-size: 20px;
-    
-  }
-  #box {
-    background-color: rgb(241, 237, 237);
-    border-radius: 25px;
-    border: 2px solid black;
-    padding: 20px; 
-    width: 500px;
-    height: 300px;  
-    border-collapse: collapse;
-  }
+
   a.btn-first
 {
     
@@ -53,7 +36,7 @@ li a{
     background-color: darkorange;
     color: black;
     margin: auto;
-    width: 40%;
+    width: 100%;
     padding: 10px;
 }
 a.btn-first:hover {
@@ -62,16 +45,17 @@ a.btn-first:hover {
 .table
 {
     border: white;
-    width: 60%;
+    height: auto;
+    width: auto;
     padding: 10px;
     color: black;
     font-size: 20px;
-    border-collapse: collapse;
+    
 }
 .background
 {
     background-color: cornsilk;
     width: auto;
-    height: 550px;
+    height: 600px;
     border-collapse: collapse;
 }

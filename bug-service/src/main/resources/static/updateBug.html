@@ -34,9 +34,19 @@
 				'Content-Type' : 'application/json'
 			},
 			body : JSON.stringify({
-
-				status : document.getElementById('cars').value,
+				
+				name : document.getElementById('name').value,
+				projectId : document.getElementById('project').value,
+				module : document.getElementById('module').value,
+				type : document.getElementById('type').value,
+				product : document.getElementById('product').value,
+				synopsis : document.getElementById('synopsis').value,
+				severity : document.getElementById('severity').value,
 				description : document.getElementById('description').value,
+				buildVersion : document.getElementById('submit').value,
+				eta : document.getElementById('etaid').value,
+				status : document.getElementById('Status').value,
+				priority : document.getElementById('Priority').value,
 
 			})
 		});
@@ -71,44 +81,99 @@
 	</header>
 	<form id="updateBug">
 		<div class="background">
-			<br> <br>
-			<div class="center" id="box">
+			<br>
+			<div class="center" >
+			<h1 style="color:darkorange">Update Bug</h1>
 				<table class="table">
 					<tr>
+						
 						<td>Bug Id:<span style="color:red">*</span></td>
 						<td><input id="bugId" placeholder="Enter Bug ID" required></td>
+						<td></td><td></td>
 					</tr>
-					<tr>
-						<td>Description<span style="color:red">*</span></td>
-						<td><textarea minlength="5" maxlength="100"
-								class="form-control"
-								placeholder="Please type your comment in less than 100 characters"
-								required id="description"></textarea></td>
-					</tr>
-					<tr>
-						<td>Status:<span style="color:red">*</span></td>
-						<td><select id="cars" required>
-								<option value="" disabled selected>Choose value</option>
-								<option value="NEW">NEW</option>
-								<option value="OPEN">OPEN</option>
-								<option value="FIXED">FIXED</option>
-								<option value="ASSIGNED">ASSIGNED</option>
-								<option value="PENDING_REQUEST">PENDING_REQUEST</option>
-								<option value="RETEST">RETEST</option>
-								<option value="REOPEN">REOPEN</option>
-								<Option value="CLOSED">CLOSED</Option>
-								<option value="VERIFIED">VERIFIED</option>
-								<option value="DEFERRED">DEFERRED</option>
-								<option value="DUPLICATE">DUPLICATE</option>
-								<option value="NEED_MORE_INFO">NEED_MORE_INFO</option>
-								<option value="WONT_FIX">WONT_FIX</option>
-								<option value="REJECTED">REJECTED</option>
-								<option value="NOT_A_BUG">NOT_A_BUG</option>
-						</select></td>
-					</tr>
-				</table>
+			<tr>
+				<td>Name<span style="color:red">*</span></td>
+				<td><input type="text" id="name" required></td>
+				<td>ProjectId<span style="color:red">*</span></td>
+				<td><input type="text" id="project" required></td>
 
-				<a class="btn btn-first" onclick="updateBugStatus()">Update Bug</a>
+			</tr>
+			<tr>
+				<td>Module<span style="color:red">*</span></td>
+				<td><input type="text" id="module" required></td>
+				<td>Type<span style="color:red">*</span></td>
+				<td><select id="type" required>
+						<option value="" disabled selected>Choose value</option>
+						<option value="RUNTIME">RUNTIME</option>
+						<option value="COMPILETIME">COMPILETIME</option>
+						<option value="ARITHMETIC">ARITHMETIC</option>
+						<option value="LOGICAL">LOGICAL</option>
+						<option value="SYNTAX">SYNTAX</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td>Product<span style="color:red">*</span></td>
+				<td><input type="text" id="product" required></td>
+				<td>Status<span style="color:red">*</span></td>
+				<td><select name="Status" id="Status" required>
+						<option value="" disabled selected>Choose value</option>
+						<option value="NEW">NEW</option>
+						<option value="ASSIGNED">ASSIGNED</option>
+						<option value="OPEN">OPEN</option>
+						<option value="FIXED">FIXED</option>
+						<option value="PENDING_REQUEST">PENDING_RETEST</option>
+						<option value="RETEST">RETEST</option>
+						<option value="REOPEN">REOPEN</option>
+						<option value="VERIFIED">VERIFIED</option>
+						<Option value="CLOSED">CLOSED</Option>
+						
+				</select></td>
+
+			</tr>
+			<tr>
+				<td>Synopsis<span style="color:red">*</span></td>
+				<td><textarea minlength="5" maxlength="50" class="form-control"
+                    placeholder="Please type your comment in less than 50 characters" id="synopsis" required
+                    ></textarea></td>
+				<td>Severity<span style="color:red">*</span></td>
+				<td><select id="severity" required>
+						<option value="" disabled selected>Choose value</option>
+						<option value="SEVERE">SEVERE</option>
+						<option value="MILD">MILD</option>
+						<option value="LOW">LOW</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td>Description<span style="color:red">*</span></td>
+				<td><textarea minlength="5" maxlength="100" class="form-control"
+                    placeholder="Please type your comment in less than 100 characters" required id="description"
+                    ></textarea></td>
+				<td>Priority<span style="color:red">*</span></td>
+				<td><select name="Priority" id="Priority" required>
+						<option value="" disabled selected>Choose value</option>
+						<option value="HIGH">HIGH</option>
+						<option value="MEDIUM">MEDIUM</option>
+						<option value="LOW">LOW</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td>Build Version<span style="color:red">*</span></td>
+				<td><input id="submit"></td>
+				<td>Estimated Date<span style="color:red">*</span></td>
+				<td><input type="date" id="etaid"></td>
+			</tr>
+		
+				</table>
+				<table width="100%">
+		<tr>
+		<td></td>
+		<td><a class="btn btn-first" onclick="updateBugStatus()">Update Bug</a></td>
+		<td></td>
+		</tr>
+		</table>
+		
+
+				
 			</div>
 
 
