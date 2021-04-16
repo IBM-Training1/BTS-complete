@@ -122,8 +122,18 @@ public class Bug {
 	}
 
 	public void setStatus(STATUS status) {
-		this.status = status;
-	}
+		if(status==STATUS.NOT_A_BUG || status==STATUS.DUPLICATE || status==STATUS.REJECTED || status==STATUS.WONT_FIX ) {
+			this.status = STATUS.CLOSED;
+		}
+		else if(status==STATUS.DEFERRED || status==STATUS.NEED_MORE_INFO ) {
+			this.status = STATUS.ASSIGNED;
+		}
+		else {
+			this.status = status;
+		}
+		}
+		
+	
 
 	public String getLocation() {
 		return location;
