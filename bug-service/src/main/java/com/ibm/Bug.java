@@ -172,6 +172,7 @@ public class Bug {
 	}
 
 	public void setSubmittedOn(Date submittedOn) {
+		
 		this.submittedOn = submittedOn;
 	}
 

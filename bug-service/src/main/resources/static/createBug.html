@@ -43,12 +43,13 @@
 				synopsis : document.getElementById('synopsis').value,
 				description : document.getElementById('description').value,
 				product : document.getElementById('product').value,
-				submittedOn : document.getElementById('submit').valueAsDate,
+				buildVersion : document.getElementById('submit').value,
 				eta : document.getElementById('etaid').valueAsDate
 			})
 		});
 		promise.then(success);
 	}
+				
 </script>
 </head>
 
@@ -80,16 +81,16 @@
 		<p class="para1">Create Bug</p>
 		<table class="table">
 			<tr>
-				<td>Name</td>
+				<td>Name<span style="color:red">*</span></td>
 				<td><input type="text" id="name" required></td>
-				<td>ProjectId</td>
+				<td>ProjectId<span style="color:red">*</span></td>
 				<td><input type="text" id="project" required></td>
 
 			</tr>
 			<tr>
-				<td>Module</td>
+				<td>Module<span style="color:red">*</span></td>
 				<td><input type="text" id="module" required></td>
-				<td>Type</td>
+				<td>Type<span style="color:red">*</span></td>
 				<td><select id="type" required>
 						<option value="" disabled selected>Choose value</option>
 						<option value="RUNTIME">RUNTIME</option>
@@ -100,9 +101,9 @@
 				</select></td>
 			</tr>
 			<tr>
-				<td>Product</td>
+				<td>Product<span style="color:red">*</span></td>
 				<td><input type="text" id="product" required></td>
-				<td>Status</td>
+				<td>Status<span style="color:red">*</span></td>
 				<td><select name="Status" id="Status" required>
 						<option value="" disabled selected>Choose value</option>
 						<option value="NEW">NEW</option>
@@ -124,11 +125,11 @@
 
 			</tr>
 			<tr>
-				<td>Synopsis</td>
+				<td>Synopsis<span style="color:red">*</span></td>
 				<td><textarea minlength="5" maxlength="50" class="form-control"
                     placeholder="Please type your comment in less than 50 characters" id="synopsis" required
                     ></textarea></td>
-				<td>Severity</td>
+				<td>Severity<span style="color:red">*</span></td>
 				<td><select id="severity" required>
 						<option value="" disabled selected>Choose value</option>
 						<option value="SEVERE">SEVERE</option>
@@ -137,11 +138,11 @@
 				</select></td>
 			</tr>
 			<tr>
-				<td>Description</td>
+				<td>Description<span style="color:red">*</span></td>
 				<td><textarea minlength="5" maxlength="100" class="form-control"
                     placeholder="Please type your comment in less than 100 characters" required id="description"
                     ></textarea></td>
-				<td>Priority</td>
+				<td>Priority<span style="color:red">*</span></td>
 				<td><select name="Priority" id="Priority" required>
 						<option value="" disabled selected>Choose value</option>
 						<option value="HIGH">HIGH</option>
@@ -150,9 +151,9 @@
 				</select></td>
 			</tr>
 			<tr>
-				<td>Submitted On</td>
-				<td><input type="date" id="submit"></td>
-				<td>Estimated Date</td>
+				<td>Build Version<span style="color:red">*</span></td>
+				<td><input id="submit"></td>
+				<td>Estimated Date<span style="color:red">*</span></td>
 				<td><input type="date" id="etaid"></td>
 			</tr>
 		</table>
