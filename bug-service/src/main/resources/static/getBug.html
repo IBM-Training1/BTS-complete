@@ -75,10 +75,10 @@ function getBug() {
 		alert('form is invalid');
 		return;
 	}
-	let id = document.getElementById('bugId').value;
-	id = id.trim();
-	if (bugId) {
-		const promise = fetch('/bug/' + id);
+	let name = document.getElementById('bugName').value;
+	name = name.trim();
+	if (bugName) {
+		const promise = fetch('/bug/' + name);
 		promise.then(function(response) {
 			return response.json();
 		}).then(function(bug) {
@@ -129,12 +129,12 @@ function getBug() {
 
 				table.appendChild(row);
 			} else {
-				alert("invalid bug Id");
+				alert("invalid bug Name");
 			}
 		});
 
 	} else {
-		alert("invalid Bug Id");
+		alert("invalid Bug name");
 	}
 }</script>
 </head>
@@ -169,8 +169,8 @@ function getBug() {
 			<form id="getBug">
 				<table class="table">
 					<tr>
-						<td>Bug Id:</td>
-						<td><input id="bugId" placeholder="" required></td>
+						<td>Bug Name:</td>
+						<td><input id="bugName" placeholder="" required></td>
 					</tr>
 				</table>
 				<h6>Required field</h6>
