@@ -22,10 +22,7 @@ li a{
     height: 48px;
     padding: 2px 10px;
 }
-.icon-bar
-{
-    background: darkorange;
-}
+
 .para1
 {
     font-size: 30px;
@@ -43,6 +40,10 @@ li a{
     height: auto;
    
     
+}
+.navbar-toggler-icon{
+	color:white;
+	 background-color: darkorange;
 }
 .btn.btn-first
 { 
