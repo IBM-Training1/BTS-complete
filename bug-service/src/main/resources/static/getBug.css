@@ -54,6 +54,10 @@ li a{
     width: 400px;
     height: 180px;  
   }
+  .table table-bordered {
+ width:auto;
+table-layout:collapse;
+  }
   a.btn-first
 {
     
@@ -74,3 +78,11 @@ a.btn-first:hover {
     width: auto;
     height: 530px;
   }
+  .para1
+{
+    font-size: 30px;
+   
+    color : darkorange;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
