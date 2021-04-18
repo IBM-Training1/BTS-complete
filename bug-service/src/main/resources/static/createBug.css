@@ -52,6 +52,10 @@ li a{
     margin: auto;
     width: 100%;
     padding: 10px;
+
+    color: black;
+    font-size: 20px;
+    border-collapse: collapse;
 }
 .btn-first:hover {
     background-color: yellow;
