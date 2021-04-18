@@ -2,19 +2,14 @@
     margin: 0;
     padding: 0;
 }
-.header
-{
-    height: 10vh;
-}
 .navbar-style
 {
     background-color: grey;
     
     height: auto;
     width: auto;
-
+	font-size:20px;
     box-shadow: 0 5px 10px black;
-    text-transform: uppercase;
 }
 li a{
     color: #000;
@@ -72,6 +67,6 @@ color: black;
 #indexbody
 {
     background-color: cornsilk;
-    width: 1270px;
+    width: auto;
     height: auto;
 }
