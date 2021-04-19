@@ -156,6 +156,11 @@ public class BugService {
 		this.bugRepository = bugRepository;
 	}
 
+	public List<Bug> getBugbyStatus(STATUS status) {
+		
+		return bugRepository.findByStatus(status);
+	}
+
 	
 
 }
