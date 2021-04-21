@@ -60,16 +60,34 @@ public class BugController {
 //	Optional<Bug> getBugById(@PathVariable("id") String bugId) {
 //		return bugService.getBugById(bugId);
 //	}
+	/**
+	 * method to search by name
+	 * 
+	 * @param name
+	 * @return bug
+	 */
 
 	@GetMapping("/bug/name/{name}")
 	Optional<Bug> getBugByName(@PathVariable("name") String bugName) {
 		return bugService.getBug(bugName);
 	}
+	/**
+	 * method to search bug using status
+	 * 
+	 * @param status
+	 * @return lost of bugs
+	 */
 
 	@GetMapping("/bug/status/{status}")
-	List<Bug> getBugByName(@PathVariable("status") STATUS status) {
+	List<Bug> getBugByStatus(@PathVariable("status") STATUS status) {
 		return bugService.getBugbyStatus(status);
 	}
+	/**
+	 * method to search all bugs
+	 * 
+	 * @param bugId
+	 * @return list of bugs
+	 */
 
 	@GetMapping("/bug")
 	List<Bug> getBugs() {
