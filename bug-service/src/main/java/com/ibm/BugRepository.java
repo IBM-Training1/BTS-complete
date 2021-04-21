@@ -9,6 +9,7 @@ import com.ibm.Bug;
 public interface BugRepository extends MongoRepository<Bug,String> {
 //@Query("{'name':?0}")
 List<Bug> findByStatus(STATUS status);
+//ignore case sensitive in bug name
 Optional<Bug> findByNameIgnoreCase(String bugName);
 	
 
