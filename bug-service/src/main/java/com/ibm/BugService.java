@@ -31,7 +31,7 @@ public class BugService {
 	 */
 	
 	public Optional<Bug> getBug(String bugName) {
-		return bugRepository.findByName(bugName);
+		return bugRepository.findByNameIgnoreCase(bugName);
 	}
 
 
