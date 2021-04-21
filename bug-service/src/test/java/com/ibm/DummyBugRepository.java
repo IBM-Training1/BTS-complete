@@ -135,15 +135,17 @@ public class DummyBugRepository implements BugRepository {
 	}
 
 
+	
+
 	@Override
-	public Optional<Bug> findByName(String bugName) {
+	public List<Bug> findByStatus(STATUS status) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 
 	@Override
-	public List<Bug> findByStatus(STATUS status) {
+	public Optional<Bug> findByNameIgnoreCase(String bugName) {
 		// TODO Auto-generated method stub
 		return null;
 	}
