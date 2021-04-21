@@ -9,7 +9,7 @@ import com.ibm.Bug;
 public interface BugRepository extends MongoRepository<Bug,String> {
 //@Query("{'name':?0}")
 List<Bug> findByStatus(STATUS status);
-Optional<Bug> findByName(String bugName);
+Optional<Bug> findByNameIgnoreCase(String bugName);
 	
 
 }
