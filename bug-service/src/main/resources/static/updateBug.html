@@ -14,6 +14,43 @@
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script type="text/javascript">
+function getBug() {
+	let bugName = document.getElementById('bugName').value;
+	bugName = bugName.trim();
+	if (bugName) {
+		const promise = fetch('/bug/name/' + bugName);
+		promise.then(function(response) {
+			return response.json();
+		}).then(function(bug) {
+			if (bug) {
+				loadBug(bug);
+			}
+
+			else {
+				alert("Invalid Bug Name");
+			}
+		});
+	}
+}
+function loadBug(bug) {
+	let etaDate = bug.eta;
+	if (etaDate) {
+		let finalEtaDate = etaDate.split('T')[0];
+		document.getElementById('etaid').value = finalEtaDate;
+	}
+	document.getElementById('name').value = bug.name;
+	document.getElementById('id').value = bug.id;
+	document.getElementById('Priority').value = bug.priority;
+	document.getElementById('type').value = bug.type;
+	document.getElementById('severity').value = bug.severity;
+	document.getElementById('module').value = bug.module;
+	document.getElementById('submit').value = bug.buildVersion;
+	document.getElementById('description').value = bug.description;
+	document.getElementById('project').value = bug.projectId;
+	document.getElementById('synopsis').value = bug.synopsis;
+	document.getElementById('product').value = bug.product;
+	document.getElementById('Status').value = bug.status;
+}
 	function updateBugStatus() {
 		function success(response) {
 			if (!response.ok) {
@@ -28,8 +65,8 @@
 			alert('form is invalid');
 			return;
 		}
-		let id = document.getElementById('bugId').value;
-		const promise = fetch('/bug/' + id, {
+		let bugid = document.getElementById('id').value;
+		const promise = fetch('/bug/' + bugid, {
 			method : 'PUT',
 			headers : {
 				'Content-Type' : 'application/json'
@@ -74,8 +111,19 @@
 	</nav>
 </header>
 
-	<form id="createBug" class="jumbotron" style="padding-top: 34px">
+	<form id="updateBug" class="jumbotron" style="padding-top: 34px;color: grey;
+    font-size: 20px;
+    background-color: cornsilk;
+    width: auto;
+    height: auto;">
 		<p class="para1">Update Bug</p>
+		<div class="form-group row searchForm">
+		
+			<label for="bugName" class="col-sm-2 bugLabel">Bug Name<span>*</span></label>
+			<input class="form-control col-sm-6" style="margin-right:50px" id='bugName'>
+		
+		<button type="button" id="searchBug" class="btn btn-primary col-sm-3 searchButton" onclick="getBug()">Get Bug</button>
+	</div>
 		<div class="container">
 			<div class="row">
 				<div class="col">
@@ -84,7 +132,7 @@
 							Id<span style="color: red">*</span>
 						</label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control" id="bugId" name="bugId"
+							<input type="text" class="form-control" id="id" name="bugId"
 								required>
 						</div>
 					</div>
@@ -232,9 +280,9 @@
 				</div>
 			</div>
 		</div>
-		</div>
+		
 		<br>
-		<button onclick="saveBug()" type="Submit" class="btn btn-first">Update
+		<button onclick="updateBugStatus()" type="Submit" class="btn btn-first">Update
 			Bug</button>
 	</form>
 	<!-- Footer -->
