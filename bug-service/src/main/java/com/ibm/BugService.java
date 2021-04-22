@@ -161,4 +161,9 @@ public class BugService {
 		return bugRepository.findByStatus(status);
 	}
 
+	public void deleteBug(String bugId) {
+		bugRepository.deleteById(bugId);
+		
+	}
+
 }
