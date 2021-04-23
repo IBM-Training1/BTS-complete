@@ -96,8 +96,8 @@ public class BugController {
 	List<Bug> getBugs() {
 		return bugService.getBugs();
 	}
-	@GetMapping("/bug/search")
-	List<Bug> findByStatusAndName(@PathParam("status") STATUS status, @PathParam("name") String name) {
+	@GetMapping("/bug/search/{name}")
+	List<Bug> findByStatusAndName(@PathParam("status") STATUS status, @PathVariable("name") String name) {
 		return bugService.findByStatusAndName(status, name);
 	}
 
