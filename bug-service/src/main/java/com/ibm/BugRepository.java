@@ -11,7 +11,7 @@ public interface BugRepository extends MongoRepository<Bug,String> {
 List<Bug> findByStatus(STATUS status);
 //ignore case sensitive in bug name
 Optional<Bug> findByNameIgnoreCase(String bugName);
-List<Bug> findByStatusAndTitle(STATUS status, String name);
+List<Bug> findByStatusAndName(STATUS status, String name);
 	
 
 }

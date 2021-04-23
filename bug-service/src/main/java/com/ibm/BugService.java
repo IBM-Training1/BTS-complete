@@ -168,8 +168,8 @@ public class BugService {
 
 	
 
-	public List<Bug> findByStatusAndTitle(STATUS status, String name) {
-		return bugRepository.findByStatusAndTitle(status, name);
+	public List<Bug> findByStatusAndName(STATUS status, String name) {
+		return bugRepository.findByStatusAndName(status, name);
 	}
 
 }
