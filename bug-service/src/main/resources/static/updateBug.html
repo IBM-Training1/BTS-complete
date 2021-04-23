@@ -33,11 +33,7 @@ function getBug() {
 	}
 }
 function loadBug(bug) {
-	let etaDate = bug.eta;
-	if (etaDate) {
-		let finalEtaDate = etaDate.split('T')[0];
-		document.getElementById('etaid').value = finalEtaDate;
-	}
+	
 	document.getElementById('name').value = bug.name;
 	document.getElementById('id').value = bug.id;
 	document.getElementById('Priority').value = bug.priority;
@@ -50,6 +46,7 @@ function loadBug(bug) {
 	document.getElementById('synopsis').value = bug.synopsis;
 	document.getElementById('product').value = bug.product;
 	document.getElementById('Status').value = bug.status;
+	document.getElementById('etaid').value = bug.eta;
 }
 	function updateBugStatus() {
 		function success(response) {

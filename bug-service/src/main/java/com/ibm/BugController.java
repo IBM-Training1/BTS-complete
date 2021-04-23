@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import javax.validation.Valid;
+import javax.websocket.server.PathParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
@@ -93,6 +95,10 @@ public class BugController {
 	@GetMapping("/bug")
 	List<Bug> getBugs() {
 		return bugService.getBugs();
+	}
+	@GetMapping("/bug/search/{name}")
+	List<Bug> findByStatusAndName(@PathParam("status") STATUS status, @PathVariable("name") String name) {
+		return bugService.findByStatusAndName(status, name);
 	}
 
 	/**
