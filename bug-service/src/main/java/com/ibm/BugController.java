@@ -71,7 +71,7 @@ public class BugController {
 	 */
 
 	@GetMapping("/bug/name/{name}")
-	Optional<Bug> getBugByName(@PathVariable("name") String bugName) {
+	List<Bug> getBugByName(@PathVariable("name") String bugName) {
 		return bugService.getBug(bugName);
 	}
 	/**
@@ -99,6 +99,10 @@ public class BugController {
 	@GetMapping("/bug/search/{name}")
 	List<Bug> findByStatusAndName(@PathParam("status") STATUS status, @PathVariable("name") String name) {
 		return bugService.findByStatusAndName(status, name);
+	}
+	@GetMapping("/bug/{name}")
+	List<Bug> getBugByPartialName(@PathVariable("name") String bugName) {
+		return bugService.getBugByPartialName(bugName);
 	}
 
 	/**
