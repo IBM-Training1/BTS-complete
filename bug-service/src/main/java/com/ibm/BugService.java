@@ -30,7 +30,7 @@ public class BugService {
 	 * @return bug details
 	 */
 
-	public Optional<Bug> getBug(String bugName) {
+	public List<Bug> getBug(String bugName) {
 		return bugRepository.findByNameIgnoreCase(bugName);
 	}
 
@@ -170,6 +170,10 @@ public class BugService {
 
 	public List<Bug> findByStatusAndName(STATUS status, String name) {
 		return bugRepository.findByStatusAndNameIgnoreCase(status, name);
+	}
+
+	public List<Bug> getBugByPartialName(String bugName) {
+		return bugRepository.findByNameIgnoreCase(bugName);
 	}
 
 }
