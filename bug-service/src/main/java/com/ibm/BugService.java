@@ -30,8 +30,8 @@ public class BugService {
 	 * @return bug details
 	 */
 
-	public List<Bug> getBug(String bugName) {
-		return bugRepository.findByNameIgnoreCase(bugName);
+	public Optional<Bug> getBug(String bugName) {
+		return bugRepository.findByName(bugName);
 	}
 
 	/**
@@ -176,4 +176,5 @@ public class BugService {
 		return bugRepository.findByNameIgnoreCase(bugName);
 	}
 
+	
 }

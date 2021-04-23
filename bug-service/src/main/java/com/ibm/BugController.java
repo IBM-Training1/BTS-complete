@@ -71,7 +71,7 @@ public class BugController {
 	 */
 
 	@GetMapping("/bug/name/{name}")
-	List<Bug> getBugByName(@PathVariable("name") String bugName) {
+	Optional<Bug> getBugByName(@PathVariable("name") String bugName) {
 		return bugService.getBug(bugName);
 	}
 	/**
@@ -104,6 +104,7 @@ public class BugController {
 	List<Bug> getBugByPartialName(@PathVariable("name") String bugName) {
 		return bugService.getBugByPartialName(bugName);
 	}
+	
 
 	/**
 	 * updates the changes in Bug

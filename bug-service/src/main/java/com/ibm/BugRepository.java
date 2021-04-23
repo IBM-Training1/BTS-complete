@@ -14,6 +14,8 @@ List<Bug> findByStatus(STATUS status);
 List<Bug> findByNameIgnoreCase(String bugName);
 @Query("{status: ?0,name : {$regex : ?1,'$options':'i'}}")
 List<Bug> findByStatusAndNameIgnoreCase(STATUS status, String name);
+Optional<Bug> findByName(String bugName);
+
 	
 
 }
