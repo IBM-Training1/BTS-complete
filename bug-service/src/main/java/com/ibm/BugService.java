@@ -169,7 +169,7 @@ public class BugService {
 	
 
 	public List<Bug> findByStatusAndName(STATUS status, String name) {
-		return bugRepository.findByStatusAndName(status, name);
+		return bugRepository.findByStatusAndNameIgnoreCase(status, name);
 	}
 
 }
